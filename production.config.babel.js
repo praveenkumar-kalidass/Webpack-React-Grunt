@@ -1,5 +1,5 @@
-import path from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const config = {
   entry: {
@@ -19,7 +19,21 @@ const config = {
       filename: path.join(__dirname, "public/index.html"),
       template: path.join(__dirname, "src/index.html")
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["es2015"]
+          }
+        }
+      }
+    ]
+  }
 };
 
-export default config;
+module.exports = config;

@@ -1,6 +1,6 @@
-import webpack from "webpack";
-import path from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
+const webpack = require("webpack");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const config = {
   entry: {
@@ -25,8 +25,23 @@ const config = {
   devServer: {
     contentBase: path.join(__dirname, "public/"),
     historyApiFallback: true,
-    hot: true
+    hot: true,
+    open: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["es2015"]
+          }
+        }
+      }
+    ]
   }
 };
 
-export default config;
+module.exports = config;
