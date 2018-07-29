@@ -28,7 +28,11 @@ const config = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["es2015"]
+            babelrc: false,
+            presets: [
+              "es2015",
+              "react"
+            ]
           }
         }
       }

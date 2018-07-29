@@ -4,6 +4,9 @@ const prodConfig = require("./production.config.babel");
 
 const gruntTask = (grunt) => {
   grunt.initConfig({
+    "clean": [
+      path.join(__dirname, "public/*")
+    ],
     "webpack": {
       build: prodConfig
     },
@@ -15,7 +18,18 @@ const gruntTask = (grunt) => {
     }
   });
 
+  grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-webpack");
+
+  grunt.registerTask("dev", [
+    "clean",
+    "webpack-dev-server:start"
+  ]);
+
+  grunt.registerTask("build", [
+    "clean",
+    "webpack:build"
+  ]);
 };
 
 module.exports = gruntTask;
