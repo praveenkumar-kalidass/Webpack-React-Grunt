@@ -12,7 +12,7 @@ const config = {
   },
   mode: "development",
   resolve: {
-    extensions: [".js", ".json"]
+    extensions: [".js", ".css", ".scss"]
   },
   devtool: "inline-source-map",
   plugins: [
@@ -29,22 +29,33 @@ const config = {
     open: true
   },
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            babelrc: false,
-            presets: [
-              "es2015",
-              "react"
-            ]
-          }
+    rules: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: "babel-loader",
+        options: {
+          babelrc: false,
+          presets: [
+            "es2015",
+            "react"
+          ]
         }
       }
-    ]
+    }, {
+      test: /\.scss$/,
+      use: [
+        "style-loader",
+        "css-loader",
+        "sass-loader"
+      ]
+    }, {
+      test: /\.css$/,
+      use: [
+        "style-loader",
+        "css-loader"
+      ]
+    }]
   }
 };
 
