@@ -36,6 +36,7 @@ const config = {
         loader: "babel-loader",
         options: {
           babelrc: false,
+          plugins: ["transform-object-rest-spread"],
           presets: [
             "es2015",
             "react"

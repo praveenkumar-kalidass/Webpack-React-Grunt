@@ -7,7 +7,7 @@ class AppContainer extends React.Component {
     return (
       <div className="app">
         My App
-        <Button bsStyle="success">Success</Button>
+        {this.props.children}
       </div>
     );
   }
