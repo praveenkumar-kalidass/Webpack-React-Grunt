@@ -1,13 +1,17 @@
 import React from "react";
 import {connect} from "react-redux";
 import {Button} from "react-bootstrap";
-import FriendsActions from "../../Actions/Friends";
+import {getAllFriends} from "../../Actions/Friends";
 
 const mapStateToProps = (state) => (
   {
     friends: state.friends
   }
 );
+
+const mapDispatchToProps = (dispatch) => ({
+  getAllFriends: () => { dispatch(getAllFriends()) }
+});
 
 class Friends extends React.Component {
   constructor(props) {
@@ -24,7 +28,7 @@ class Friends extends React.Component {
   }
 
   componentDidMount() {
-    FriendsActions.getAllFriends();
+    this.props.getAllFriends();
   }
 
   render() {
@@ -36,4 +40,4 @@ class Friends extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(Friends);
+export default connect(mapStateToProps, mapDispatchToProps)(Friends);

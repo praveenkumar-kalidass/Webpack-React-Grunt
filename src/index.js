@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import store from "./Store/store";
 import {Provider} from "react-redux";
 import Router from "./routes";
-import "bootstrap/dist/css/bootstrap";
+import "bootstrap/dist/css/bootstrap.css";
 
 ReactDOM.render(
   <Provider store={store}>

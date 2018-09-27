@@ -1,20 +1,18 @@
 import Api from "../Api/Friends";
-import actions from "./ActionTypes";
-import store from "../Store/store";
+import {LOAD_FRIENDS_LIST} from "../Constants/ActionTypes";
 
-const friendsActions = {
-  getAllFriends: () => {
-    store.dispatch((action) => {
-      Api.getAllFriends().then((friends) => {
-        action({
-          type: actions.GET_ALL_FRIENDS,
-          data: friends.data
-        });
-      }).catch((error) => {
-        throw(error);
-      });
-    });
-  }
+const getAllFriends = () => (dispatch) => {
+  Api.getAllFriends().then((response) => {
+    dispatch(loadFriendsList(response.data));
+  });
 };
 
-export default friendsActions;
+const loadFriendsList = (friends) => ({
+  type: LOAD_FRIENDS_LIST,
+  friends
+});
+
+export {
+  getAllFriends,
+  loadFriendsList
+};

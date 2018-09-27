@@ -1,4 +1,4 @@
-import actions from "../Actions/ActionTypes";
+import {LOAD_FRIENDS_LIST} from "../Constants/ActionTypes";
 
 const initialState = {
   friends: []
@@ -6,7 +6,7 @@ const initialState = {
 
 const friendsReducer = (state = initialState, action) => {
   switch(action.type) {
-    case actions.GET_ALL_FRIENDS:
+    case LOAD_FRIENDS_LIST:
       return {
         ...state,
         friends: action.data
