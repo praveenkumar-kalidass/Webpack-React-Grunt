@@ -5,7 +5,7 @@ import {getAllFriends} from "../../Actions/Friends";
 
 const mapStateToProps = (state) => (
   {
-    friends: state.friends
+    friends: state.friends.friends
   }
 );
 
@@ -23,7 +23,7 @@ class Friends extends React.Component {
 
   componentWillReceiveProps(props) {
     this.setState({
-      friends: props.friends.friends
+      friends: props.friends
     });
   }
 

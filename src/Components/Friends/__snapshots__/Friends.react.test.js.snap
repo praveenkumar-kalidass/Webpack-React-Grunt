@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Friends Component 1`] = `
+exports[`Friends Component Snapshot 1`] = `
 <div>
   Friends Page
 </div>
