@@ -1,6 +1,6 @@
 {
   "name": "webpack-react-grunt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A React-Redux starter with Webpack4, Grunt",
   "main": "./src/index.js",
   "scripts": {
