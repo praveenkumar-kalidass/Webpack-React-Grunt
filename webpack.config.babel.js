@@ -12,7 +12,7 @@ const config = {
   },
   mode: "development",
   resolve: {
-    extensions: [".js", ".css", ".scss"]
+    extensions: [".js"]
   },
   devtool: "inline-source-map",
   plugins: [

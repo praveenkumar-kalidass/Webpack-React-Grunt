@@ -1,6 +1,6 @@
 import React from "react";
 import {Button} from "react-bootstrap";
-import "./App";
+import "./App.scss";
 
 class AppContainer extends React.Component {
   render() {

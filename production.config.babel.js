@@ -12,7 +12,7 @@ const config = {
   },
   mode: "production",
   resolve: {
-    extensions: [".js", ".css", ".scss"]
+    extensions: [".js"]
   },
   plugins: [
     new HtmlWebpackPlugin({
