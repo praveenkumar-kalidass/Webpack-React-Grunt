@@ -7,6 +7,12 @@ const gruntTask = (grunt) => {
     "clean": [
       path.join(__dirname, "public/*")
     ],
+    "eslint": {
+      options: {
+        quiet: true
+      },
+      validate: ["src"]
+    },
     "webpack": {
       build: prodConfig
     },
@@ -20,6 +26,7 @@ const gruntTask = (grunt) => {
 
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-webpack");
+  grunt.loadNpmTasks("grunt-eslint");
 
   grunt.registerTask("dev", [
     "clean",
@@ -28,6 +35,7 @@ const gruntTask = (grunt) => {
 
   grunt.registerTask("build", [
     "clean",
+    "eslint",
     "webpack:build"
   ]);
 };
