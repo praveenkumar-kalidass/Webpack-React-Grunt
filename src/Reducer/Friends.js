@@ -1,12 +1,12 @@
-import {LOAD_FRIENDS_LIST} from "../Constants/ActionTypes";
+import Actions from "../ActionTypes/Friends";
 
 const initialState = {
   friends: []
 };
 
-const friendsReducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch(action.type) {
-    case LOAD_FRIENDS_LIST:
+    case Actions.LOAD_FRIENDS_LIST:
       return {
         ...state,
         friends: action.data
@@ -15,5 +15,3 @@ const friendsReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default friendsReducer;

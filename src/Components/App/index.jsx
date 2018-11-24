@@ -1,8 +1,8 @@
 import React from "react";
 import {Button} from "react-bootstrap";
-import "./App.scss";
+import "./style.scss";
 
-class AppContainer extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <div className="app">
@@ -13,4 +13,4 @@ class AppContainer extends React.Component {
   }
 }
 
-export default AppContainer;
+export default App;

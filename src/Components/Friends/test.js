@@ -1,5 +1,5 @@
 import React from "react";
-import Friends from "./Friends.react";
+import Friends from "./index";
 import renderer from "react-test-renderer";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";

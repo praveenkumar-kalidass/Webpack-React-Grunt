@@ -1,10 +1,8 @@
 import axios from "axios";
 const api = "http://rest.learncode.academy/api/learncode";
 
-const friendsApi = {
+export default {
   getAllFriends: () => {
-    return axios.get(api + "/friends");
+    return axios.get(`${api}/friends`);
   }
 };
-
-export default friendsApi;

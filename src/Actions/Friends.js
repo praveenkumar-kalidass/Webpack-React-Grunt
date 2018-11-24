@@ -1,5 +1,5 @@
 import Api from "../Api/Friends";
-import {LOAD_FRIENDS_LIST} from "../Constants/ActionTypes";
+import Actions from "../ActionTypes/Friends";
 
 const getAllFriends = () => (dispatch) => {
   Api.getAllFriends().then((response) => {
@@ -8,11 +8,10 @@ const getAllFriends = () => (dispatch) => {
 };
 
 const loadFriendsList = (friends) => ({
-  type: LOAD_FRIENDS_LIST,
+  type: Actions.LOAD_FRIENDS_LIST,
   friends
 });
 
 export {
-  getAllFriends,
-  loadFriendsList
+  getAllFriends
 };

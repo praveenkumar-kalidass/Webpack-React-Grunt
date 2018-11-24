@@ -1,7 +1,7 @@
 import React from "react";
-import {BrowserRouter as Router, Route} from "react-router-dom";
-import App from "./Components/App/App.react";
-import Friends from "./Components/Friends/Friends.react";
+import {HashRouter as Router, Route} from "react-router-dom";
+import App from "./Components/App";
+import Friends from "./Components/Friends";
 
 const AppRouter = () => (
   <Router basename="/">

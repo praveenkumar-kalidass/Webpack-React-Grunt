@@ -1,7 +1,7 @@
 {
   "name": "webpack-react-grunt",
   "version": "1.0.1",
-  "description": "A React-Redux starter with Webpack4, Grunt",
+  "description": "A React-Redux starter with Webpack, Grunt",
   "main": "./src/index.js",
   "scripts": {
     "webpack-dev-server": "webpack-dev-server",
@@ -10,17 +10,19 @@
     "grunt-build": "grunt build",
     "grunt-lint": "grunt eslint",
     "test": "jest",
-    "coverage": "jest --collectCoverageFrom=\"src/**/*.react.js\" --coverage"
+    "coverage": "jest --collectCoverageFrom=\"src/**/*.jsx\" --coverage"
   },
   "repository": "git+https://github.com/praveenkumar-outlook/Webpack-React-Grunt.git",
   "keywords": [
-    "Webpack4",
-    "React",
-    "Redux",
-    "Grunt",
-    "Jest"
+    "webpack",
+    "react",
+    "bootstrap",
+    "redux",
+    "thunk",
+    "grunt",
+    "jest"
   ],
-  "author": "Praveenkumar K",
+  "author": "Praveenkumar K <praveen.ece@outlook.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/praveenkumar-outlook/Webpack-React-Grunt/issues"
@@ -73,7 +75,7 @@
       "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     },
     "transform": {
-      "\\.js$": "babel-jest"
+      "\\.jsx?$": "babel-jest"
     }
   }
 }
