@@ -8,11 +8,11 @@ const config = {
   },
   output: {
     path: path.join(__dirname, "public"),
-    filename: "[name].bundle.js"
+    filename: "scripts/[name].bundle.js"
   },
   mode: "development",
   resolve: {
-    extensions: [".js"]
+    extensions: [".js", ".jsx", ".json"]
   },
   devtool: "inline-source-map",
   plugins: [
@@ -30,13 +30,16 @@ const config = {
   },
   module: {
     rules: [{
-      test: /\.js$/,
+      test: /\.jsx?$/,
       exclude: /node_modules/,
       use: {
         loader: "babel-loader",
         options: {
           babelrc: false,
-          plugins: ["transform-object-rest-spread"],
+          plugins: [
+            "transform-object-rest-spread",
+            "transform-class-properties"
+          ],
           presets: [
             "env",
             "react"
@@ -58,9 +61,13 @@ const config = {
       ]
     }, {
       test: /\.(png|svg|jpg|gif)$/,
-      use: [
-        "file-loader"
-      ]
+      use: [{
+        loader: "file-loader",
+        options: {
+          name: "[name].[ext]",
+          outputPath: "images/"
+        }
+      }]
     }, {
       test: /\.(eot|svg|otf|ttf|woff|woff2)$/,
       use: [

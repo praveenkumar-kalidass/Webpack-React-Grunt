@@ -6,13 +6,13 @@ const config = {
     app: path.join(__dirname, "src/index.js")
   },
   output: {
-    path: path.join(__dirname, "public/js"),
+    path: path.join(__dirname, "public"),
     hashDigestLength: 10,
-    filename: "[name].[hash].bundle.js"
+    filename: "scripts/[name].[hash].bundle.js"
   },
   mode: "production",
   resolve: {
-    extensions: [".js"]
+    extensions: [".js", ".jsx", ".json"]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -22,13 +22,16 @@ const config = {
   ],
   module: {
     rules: [{
-      test: /\.js$/,
+      test: /\.jsx?$/,
       exclude: /node_modules/,
       use: {
         loader: "babel-loader",
         options: {
           babelrc: false,
-          plugins: ["transform-object-rest-spread"],
+          plugins: [
+            "transform-object-rest-spread",
+            "transform-class-properties"
+          ],
           presets: [
             "env",
             "react"
@@ -50,9 +53,13 @@ const config = {
       ]
     }, {
       test: /\.(png|svg|jpg|gif)$/,
-      use: [
-        "file-loader"
-      ]
+      use: [{
+        loader: "file-loader",
+        options: {
+          name: "[hash].[ext]",
+          outputPath: "images/"
+        }
+      }]
     }, {
       test: /\.(eot|svg|otf|ttf|woff|woff2)$/,
       use: [
